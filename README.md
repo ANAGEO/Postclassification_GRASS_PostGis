@@ -1,7 +1,11 @@
 # Postclassification of OBIA classification using GRASS and PostGIS
 
-This repository contains a jupyter notebook which allow to perform postclassification of a land cover map using GRASS and Postgis. 
+This repository contains a jupyter notebook which allow to perform postclassification of a land cover map using [GRASS GIS](https://grass.osgeo.org/) and [Postgis](https://postgis.net/). 
 
+## Cite this code
+Please use the following DOI for citing this code:[![DOI](https://zenodo.org/badge/123937139.svg)](https://zenodo.org/badge/latestdoi/123937139)
+
+## How it works ?
 The notebook enables for computation of neighborhood matrix on the segmentation result, using [r.neighborhoodmatrix](https://grass.osgeo.org/grass74/manuals/addons/r.neighborhoodmatrix.html). Then, several table manipulation are made using PostGis in order to obtain a final table with the following informations for each segment:
 
 * The label of the segment
@@ -10,8 +14,6 @@ The notebook enables for computation of neighborhood matrix on the segmentation 
 * Shape statistics of the segment
 * Aggregated statistics values from another raster (e.g. spectral value, NDVI, nDSM)
 
-
- 
  __Example of the table__
   
 |seg|label|prop_11|prop_13|prop_14|prop_20|prop_30|prop_31|prop_41|prop_51|first_label|second_label|third_label|area|perimeter|compact_circle|compact_square|fd|ndsm_min|ndsm_max|ndsm_mean|ndsm_stddev|ndsm_median|ndvi_min|ndvi_max|ndvi_mean|ndvi_stddev|ndvi_median|
@@ -26,13 +28,16 @@ The notebook enables for computation of neighborhood matrix on the segmentation 
 
 __Example of reclassification__
 
-Initial classification
-![](Illustrations/initial_classification.png) 
+Optical image
+![](Illustrations/Optical.jpg) 
 
-Shadows removed
-![](Illustrations/Removing_shadows.png) 
+Initial classification (OBIA + Random Forest)
+![](Illustrations/RF_classifiication.jpg) 
 
+Final post-classification (public release map)
+![](Illustrations/Final_postclassif.jpg) 
 
-
-
-
+## Related code (OBIA)
+If you are interested in Object-based image analysis and classification, take a look at our work: 
+- [Opensource_OBIA_processing_chain](https://github.com/tgrippa/Opensource_OBIA_processing_chain)
+- [Semi_automated_OBIA_processing_with_local_USPO](https://github.com/tgrippa/Semi_automated_OBIA_processing_with_local_USPO)
